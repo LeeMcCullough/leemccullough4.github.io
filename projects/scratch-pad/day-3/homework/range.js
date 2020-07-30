@@ -24,16 +24,24 @@
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
   //let array = [];
+  //declare array literal
 var numbers = [];
+//using "if" compare start vs end
 	if (start < end) {
+	    //loop from start to end
 	    for (var i = start; i <= end; i++) {
+	        //push into array
 	        numbers.push(i);
 		}
+		//else statement for reverse
 	}  else {
+	    //loop in reverse
 		for (var i = start; i >= end; i--) {
+		    //push into array
 			numbers.push(i);
 		}
 	}
+	//return numbers
 	return numbers;
   
   

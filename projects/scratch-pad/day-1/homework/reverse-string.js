@@ -21,10 +21,14 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
+    //create variable with string literal
   let reversed = "";
+  //using for of to loop through characters of input
   for(let char of input){
+    
     reversed = char + reversed;
   }
+  //return reversed input
   return reversed;
     
     

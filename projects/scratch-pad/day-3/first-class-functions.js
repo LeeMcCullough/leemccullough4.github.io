@@ -13,7 +13,9 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
+    //return function with 2 parameters
  return function(string, number){
+     //compare parameters vs base return if true/ false is otherwise
      if(string > base || number > base){
          return true;
      }else{
@@ -32,7 +34,9 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
+   //return function with 2 parameters
    return function(string, number){
+       //compare parameters vs base return if true/ false is otherwise
      if(string < base || number < base){
          return true;
      }else{
@@ -52,7 +56,9 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
+    //return function with 1 parameter
  return function(string){
+     //compare with strictly equal to for startsWith character
      if(startsWith.toLowerCase() === string[0].toLowerCase()){
          return true;
      }else{
@@ -72,13 +78,15 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
+//return function with 1 parameter
 return function(string){
+    //compare with strictly equal to for startsWith character
     if(string[string.length -1].toLowerCase() === endsWith.toLowerCase()){
         return true;
     }else{
         return false;
     }
-}    
+};    
     
     
     
@@ -94,7 +102,9 @@ return function(string){
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
+    //use loop to iterate over each string to modify
  for(let i = 0; i < strings.length; i++){
+     //use splice as collection of array for modify strings
      strings.splice(i, 1, modify(strings[i]));
  }   
     return strings;
@@ -114,7 +124,9 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
+    //loop over array of strings
 for(let i = 0; i < strings.length; i++){
+    //use test method for all strings pass either true or false
     if(test(strings[i]) === false){
         return false;
     }

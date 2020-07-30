@@ -1,3 +1,5 @@
+
+
 /**
  * The statements "if "else If" and "else" in javascript means exactly what the sound like,
  * if something is true do this, or else do something sles.
@@ -36,6 +38,7 @@
   */
   }else{
       console.log('GO HOME!!');
+  }
     // This concludes our conditional statement and we console "GO HOME!!"
     
     /**
@@ -73,36 +76,5 @@
                 break;
             default:
                 console.log("GO HOME!!");
-       }
+                 }
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-  }
