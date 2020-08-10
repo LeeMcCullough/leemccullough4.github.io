@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
+    //using standard .values notation to return values
     return Object.values(object);
 } 
 
@@ -11,6 +12,8 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
+    //using standard .keys notation to return all its keys 
+    //and joined by a space. 
  return Object.keys(object).join(" ");
 }
 
@@ -19,11 +22,16 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
+    //declare empty array
     var array = [];
+    //use "for in" loop through object
     for(var key in object){
+        //if 'typeof' key is equal to string
         if(typeof object[key] === 'string'){
+            //push values into empty array
         array.push(object[key]);
         }
+        //return array joined with space.
     }return array.join(" ")
 }
 
@@ -32,8 +40,10 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    if(collection instanceof Array) return "array";
-    if(collection instanceof Object) return "object";
+    if(Array.isArray(collection)) return "array";
+    if(Object(collection)) return "object";
+    // if(collection instanceof Array) return "array";
+    // if(collection instanceof Object) return "object";
     
 }
 
@@ -50,7 +60,12 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    let array1 = string.split(" ");
+    let array2 = [];
+    for(let i = 0; i < array1.length; i++){
+        array2.push(array1[i].charAt(0).toUpperCase() + array1[i].slice(1));
+    }
+    return array2.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -77,6 +92,11 @@ return `${name} is a ${species}`;
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
+    if(object.noises === undefined || object.noises.length === 0){
+    return "there are no noises";
+    }else{
+        return object.noises.join(" ")
+    }
 
 }
 
@@ -85,7 +105,11 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    if(string.includes(word)){
+        return true
+    }else{
+        return false;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -93,7 +117,8 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+ object.friends.push(name)
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -101,7 +126,13 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+if(Object.values(object).length === 0){
+    return false;
+}else if(object.friends.includes(name)){
+    return true;
+}else{
+    return false;
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -109,7 +140,24 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+// let nonFriends = [];
+// for(let i = 0; i < array.length; i++){
+//     if(name === array[i].name){
+//     }
+//     if(!(array[i]["name"] === name) && !array[i]["friends"].includes(name)){
+//         nonFriends.push(array[i]["name"]);
+//     }
+// }
+// return nonFriends;
+let notFriends = [];
+    for(let key in array) {
+        if (array[key].name !== name) {
+            if (array[key].friends.includes(name)) {
+        } else {
+            notFriends.push(array[key].name)
+        }
+    }
+}return notFriends;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -117,7 +165,8 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+object[key] = value
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -125,7 +174,14 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+//loop through the keys in our object
+    for (let key in object) {
+// if the array includes an objects key
+        if (array.includes(key)) {
+//then delete that objects key
+            delete object[key];
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -133,7 +189,19 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+//  let dedup2 = [];
+//  for(let i = 0;i < array.length; i++){
+//      if(!dedup2.includes(array[i])){
+//          dedup2.push(array[i]);
+//      }
+//  }
+//     return dedup2
+    
+    
+    
+    
+let dedup2 = [...new Set(array)];
+return dedup2;
 }
 
 //////////////////////////////////////////////////////////////////////
